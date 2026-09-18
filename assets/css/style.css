@@ -4,8 +4,8 @@
    ========================================================================== */
 
 :root {
-  --accent: #b5179e;          /* link / highlight color (the pink-purple) */
-  --accent-dark: #8d1279;
+  --accent: #4169e1;          /* link / highlight color (royal blue) */
+  --accent-dark: #27408b;
   --text: #212529;
   --text-muted: #6c757d;
   --bg: #ffffff;
@@ -18,8 +18,8 @@
 
 /* Dark theme (toggled by the moon button, remembered per browser) */
 :root[data-theme="dark"] {
-  --accent: #e05fc9;
-  --accent-dark: #f08ade;
+  --accent: #7b9dff;
+  --accent-dark: #a3bcff;
   --text: #d6d6d6;
   --text-muted: #9a9a9a;
   --bg: #1c1c1d;
@@ -105,10 +105,10 @@ header {
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
 }
 
-.hero h1 .last-name { color: #ff9ee8; }
+.hero h1 .last-name { color: #a3bcff; }
 
 .hero .tagline {
-  color: #f3cdea;
+  color: #ccd9f9;
   margin: 0.35rem 0 0;
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
 }
@@ -221,19 +221,19 @@ h2 {
    fill = word frequency, one accent hue, darker/brighter = more frequent)
    -------------------------------------------------------------------------- */
 :root {
-  --cw1: #4d0743;
-  --cw2: #750d65;
-  --cw3: #9c1487;
-  --cw4: #802f6a;
-  --cw5: #663a58;
+  --cw1: #0f2d6b;
+  --cw2: #1a3f97;
+  --cw3: #2853c4;
+  --cw4: #3a5a9e;
+  --cw5: #46587f;
 }
 
 :root[data-theme="dark"] {
-  --cw1: #ffc4ef;
-  --cw2: #f797e0;
-  --cw3: #ea6fd0;
-  --cw4: #d385ba;
-  --cw5: #c098ae;
+  --cw1: #c9d8ff;
+  --cw2: #a5bdff;
+  --cw3: #7fa0f7;
+  --cw4: #7d95d6;
+  --cw5: #8b99bd;
 }
 
 .concept-cloud {
