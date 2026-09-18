@@ -1,0 +1,485 @@
+/* ==========================================================================
+   Personal academic website — style shared by all pages
+   Accent color, fonts, and spacing are controlled by the variables below.
+   ========================================================================== */
+
+:root {
+  --accent: #b5179e;          /* link / highlight color (the pink-purple) */
+  --accent-dark: #8d1279;
+  --text: #212529;
+  --text-muted: #6c757d;
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --border: #e9ecef;
+  --mono: "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Dark theme (toggled by the moon button, remembered per browser) */
+:root[data-theme="dark"] {
+  --accent: #e05fc9;
+  --accent-dark: #f08ade;
+  --text: #d6d6d6;
+  --text-muted: #9a9a9a;
+  --bg: #1c1c1d;
+  --bg-alt: #242426;
+  --border: #38383a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
+   Header / navigation
+   -------------------------------------------------------------------------- */
+header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.nav a.active { color: var(--accent); font-weight: 600; }
+.nav a:hover { color: var(--accent); text-decoration: none; }
+
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+  padding: 0.1rem 0.3rem;
+}
+
+/* --------------------------------------------------------------------------
+   Hero banner (JWST image behind the page title)
+   -------------------------------------------------------------------------- */
+.hero {
+  background:
+    linear-gradient(rgba(6, 6, 16, 0.35), rgba(6, 6, 16, 0.55)),
+    #0b0b12 url("../img/hero.jpg") center 32% / cover no-repeat;
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4.5rem 1rem;
+}
+
+.hero--slim .hero-inner { padding: 2.75rem 1rem; }
+
+.hero h1 {
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.85);
+}
+
+.hero h1 .last-name { color: #ff9ee8; }
+
+.hero .tagline {
+  color: #f3cdea;
+  margin: 0.35rem 0 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* --------------------------------------------------------------------------
+   Page layout
+   -------------------------------------------------------------------------- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 3rem;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0 0 0.25rem;
+}
+
+h1 .last-name { color: var(--accent); }
+
+.tagline {
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--border);
+}
+
+/* About page: text on the left, photo + address on the right */
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.profile-card { text-align: left; }
+
+.profile-card img,
+.profile-card .avatar-placeholder {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.profile-card .address {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  white-space: pre-line;
+  color: var(--text);
+}
+
+.profile-card .contact-email {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .profile-card { order: -1; max-width: 280px; }
+}
+
+/* --------------------------------------------------------------------------
+   Publication statistics tiles
+   -------------------------------------------------------------------------- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 0.25rem;
+}
+
+.stat-tile {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-alt);
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+}
+
+.stat-tile .num {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.stat-tile .label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.stats-note {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Concept cloud (word sizes/positions from the NASA ADS/SciX concept cloud;
+   fill = word frequency, one accent hue, darker/brighter = more frequent)
+   -------------------------------------------------------------------------- */
+:root {
+  --cw1: #4d0743;
+  --cw2: #750d65;
+  --cw3: #9c1487;
+  --cw4: #802f6a;
+  --cw5: #663a58;
+}
+
+:root[data-theme="dark"] {
+  --cw1: #ffc4ef;
+  --cw2: #f797e0;
+  --cw3: #ea6fd0;
+  --cw4: #d385ba;
+  --cw5: #c098ae;
+}
+
+.concept-cloud {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 1rem;
+}
+
+.concept-cloud text {
+  font-family: var(--sans);
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.concept-cloud .cw1 { fill: var(--cw1); }
+.concept-cloud .cw2 { fill: var(--cw2); }
+.concept-cloud .cw3 { fill: var(--cw3); }
+.concept-cloud .cw4 { fill: var(--cw4); }
+.concept-cloud .cw5 { fill: var(--cw5); }
+
+/* Interactive cloud: hovering (or keyboard-focusing) a word highlights it;
+   clicking opens an ADS/SciX search for that concept within my papers. */
+.concept-cloud a {
+  text-decoration: none;
+  outline: none;
+}
+
+.concept-cloud a text {
+  cursor: pointer;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.15s ease, fill 0.15s ease;
+}
+
+.concept-cloud a:hover text,
+.concept-cloud a:focus text {
+  fill: var(--accent);
+  transform: scale(1.15);
+}
+
+/* --------------------------------------------------------------------------
+   Publications
+   -------------------------------------------------------------------------- */
+.year-label {
+  font-size: 1.6rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin: 2rem 0 0.5rem;
+}
+
+.pub {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub .abbr {
+  align-self: start;
+  justify-self: start;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.pub .title { font-weight: 600; margin: 0 0 0.15rem; }
+.pub .authors { margin: 0 0 0.15rem; font-size: 0.95rem; }
+.pub .authors .me { text-decoration: underline; }
+.pub .venue { margin: 0 0 0.5rem; color: var(--text-muted); font-style: italic; font-size: 0.9rem; }
+
+.pub .links a,
+.btn {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  margin: 0 0.35rem 0.35rem 0;
+}
+
+.pub .links a:hover,
+.btn:hover {
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Small citation-count badge shown next to a paper's links */
+.cite-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  margin: 0 0.35rem 0.35rem 0;
+  vertical-align: middle;
+}
+
+.cite-badge svg {
+  width: 0.85em;
+  height: 0.85em;
+  fill: currentColor;
+}
+
+/* Ticker-style tag shown beside a project group's heading */
+.ticker {
+  display: inline-block;
+  vertical-align: 0.15em;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  padding: 0.12rem 0.5rem;
+  margin-left: 0.6rem;
+}
+
+@media (max-width: 600px) {
+  .pub { grid-template-columns: 1fr; gap: 0.4rem; }
+}
+
+/* Compact list used for co-authored publications */
+.pub-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.pub-list li {
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pub-list .meta {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.pub-list .me { text-decoration: underline; }
+
+/* --------------------------------------------------------------------------
+   Projects
+   -------------------------------------------------------------------------- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  background: var(--bg-alt);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 { margin: 0 0 0.5rem; font-size: 1.1rem; }
+.project-card p { margin: 0 0 0.75rem; font-size: 0.92rem; color: var(--text-muted); }
+
+/* --------------------------------------------------------------------------
+   CV page
+   -------------------------------------------------------------------------- */
+.cv-entry {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 1.25rem;
+  padding: 0.6rem 0;
+}
+
+.cv-entry .dates {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-family: var(--mono);
+}
+
+.cv-entry .what { margin: 0; }
+.cv-entry .where { color: var(--text-muted); font-size: 0.92rem; }
+
+@media (max-width: 600px) {
+  .cv-entry { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+
+/* --------------------------------------------------------------------------
+   Embedded CV PDF viewer
+   -------------------------------------------------------------------------- */
+.cv-embed {
+  width: 100%;
+  height: 85vh;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.footer-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.footer-inner .quote {
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.social {
+  margin: 1.5rem 0 0;
+  font-size: 1.4rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.social a { color: var(--text); }
+.social a:hover { color: var(--accent); text-decoration: none; }

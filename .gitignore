@@ -1,0 +1,11 @@
+# LaTeX build artifacts
+cv-latex/*.aux
+cv-latex/*.log
+cv-latex/*.out
+cv-latex/compile.log
+
+# macOS
+.DS_Store
+
+# local dev config
+.claude/

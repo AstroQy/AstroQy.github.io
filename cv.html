@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Qinyue Fei</title>
+  <!-- Remove this line (and robots.txt) to let search engines index the site -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/theme.js"></script>
+</head>
+<body>
+
+  <header>
+    <nav class="nav">
+      <a href="index.html">About</a>
+      <a href="publications.html">Publications</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html" class="active">CV</a>
+      <a href="https://github.com/AstroQy" target="_blank" rel="noopener">Repositories</a>
+      <button id="theme-toggle" title="Toggle light/dark theme" aria-label="Toggle theme">🌙</button>
+    </nav>
+  </header>
+
+  <div class="hero hero--slim">
+    <div class="hero-inner">
+      <h1>Curriculum Vitae</h1>
+    </div>
+  </div>
+
+  <main>
+    <!-- The PDF is compiled from cv-latex/main.tex; after recompiling, copy it here:
+         cp cv-latex/main.pdf assets/cv.pdf -->
+    <p><a class="btn" href="assets/cv.pdf" target="_blank" rel="noopener">Download PDF</a></p>
+
+    <object class="cv-embed" data="assets/cv.pdf" type="application/pdf"
+            aria-label="Curriculum Vitae of Qinyue Fei (PDF)">
+      <p>Your browser cannot display the PDF inline —
+        <a href="assets/cv.pdf" target="_blank" rel="noopener">open or download it here</a>.</p>
+    </object>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Qinyue Fei. Built with plain HTML &amp; CSS.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
